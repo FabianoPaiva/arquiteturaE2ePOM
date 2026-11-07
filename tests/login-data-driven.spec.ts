@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { DashboardPage } from '../pages/DashboardPage';
-import { listaUsuarios } from '../data/usuarios.data';
+import { LoginPage } from '../pages/LoginPage.js';
+import { DashboardPage } from '../pages/DashboardPage.js';
+import { listaUsuarios } from '../data/usuarios.data.js';
 
 test.describe('Testes Data-Driven — Matriz de Usuários', () => {
   for (const cenario of listaUsuarios) {
@@ -13,12 +13,10 @@ test.describe('Testes Data-Driven — Matriz de Usuários', () => {
       await loginPage.realizarLogin(cenario.usuario, cenario.senha);
 
       if (cenario.sucesso) {
-        // Validação de sucesso no login
         await expect(page).toHaveURL(/.*inventory\.html/);
         const titulo = await dashboardPage.obterTituloPagina();
         expect(titulo).toContain('Products');
       } else {
-        // Validação de erro esperada para fluxos negativos/bloqueados
         const mensagemErro = await loginPage.obterMensagemErro();
         expect(mensagemErro).toContain(cenario.mensagemEsperada);
         await expect(page).toHaveURL('https://www.saucedemo.com/');

@@ -1,23 +1,17 @@
 {
-  "name": "arquiteturae2epom",
+  "name": "projeto-automacao-e2e",
   "version": "1.0.0",
-  "description": "Projeto desenvolvido em **TypeScript** com **Playwright**, aplicando os conceitos avançados de arquitetura de automação em escala para a plataforma **SauceDemo (Swag Labs)**.",
-  "main": "index.js",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FabianoPaiva/arquiteturaE2ePOM.git"
+  "type": "module",
+  "description": "Atividade Prática 2 - Arquitetura E2E com Playwright e TypeScript",
+  "main": "index.ts",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/FabianoPaiva/arquiteturaE2ePOM/issues"
-  },
-  "homepage": "https://github.com/FabianoPaiva/arquiteturaE2ePOM#readme",
   "devDependencies": {
-    "@playwright/test": "^1.65.0",
-    "@types/node": "^26.6.6"
+    "@playwright/test": "^1.42.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   }
 }
